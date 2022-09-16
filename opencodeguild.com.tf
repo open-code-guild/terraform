@@ -2,6 +2,20 @@ resource "cloudflare_zone" "opencodeguild-dot-com" {
   zone = "opencodeguild.com"
 }
 
+resource "cloudflare_record" "opencodeguild-dot-com-cname" {
+  zone_id = cloudflare_zone.opencodeguild-dot-com.id
+  name    = "@"
+  type    = "CNAME"
+  value   = "open-code-guild.github.io"
+}
+
+resource "cloudflare_record" "www-opencodeguild-dot-com-cname" {
+  zone_id = cloudflare_zone.opencodeguild-dot-com.id
+  name    = "www"
+  type    = "CNAME"
+  value   = "@"
+}
+
 resource "cloudflare_record" "_github-pages-challenge-open-code-guild-opencodeguild-dot-com" {
   zone_id = cloudflare_zone.opencodeguild-dot-com.id
   name    = "_github-pages-challenge-open-code-guild"
