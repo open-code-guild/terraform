@@ -1,4 +1,4 @@
 provider "cloudflare" {
   email   = "zuedev@gmail.com"
-  api_key = var.cloudflare_api_token
+  api_key = var.cloudflare_api_key
 }
